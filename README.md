@@ -7,5 +7,3 @@ A Chrome , Brave , Firefox Stealer and a Discord Token grabber made purely for e
 
 # TODO
   - Firefox Support
-  - Brave Support
-  - Discord Support
