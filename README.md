@@ -1,4 +1,4 @@
-#THIS PROJECT IS BEING CURRENTLY REWRITTEN 
+# THIS PROJECT IS BEING CURRENTLY REWRITTEN 
 
 # INZStealer
 A Chrome , Brave , Firefox Stealer and a Discord Token grabber made purely for educational purposes!
