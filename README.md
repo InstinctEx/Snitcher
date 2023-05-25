@@ -1,5 +1,5 @@
 # INZStealer
-This Program will collect and send via a webhook on Discord all your usernames and passwords stored in your Brave and Chrome browser.
+This Program will collect and send via a webhook on Discord all your usernames and passwords stored in your browsers.
 It will also steal your Discord Token.
 
 # Features
