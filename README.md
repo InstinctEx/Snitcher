@@ -16,8 +16,9 @@
 <strong>
 This program is a tool made by <a href="https://github.com/InstinctEx">Instinct</a> (me) 
 <br>that exploits the security vulnerabilities of some chromium based web browsers and Discord.
-<br>It collects and sends the usernames and passwords stored in that browsers of the users who run the program to a webhook on Discord.
-<br>It also steals the users’ Discord tokens, which can be used to access their accounts and personal information.
+<br>It collects and sends the usernames and passwords stored in that browsers
+<br>of the users who run the program to a webhook on Discord.
+<br>It also steals the user's Discord tokens, which can be used to access their accounts and personal information.
 ### <p align="center">⭐ Features ⭐</p>
 
 <br><br>
